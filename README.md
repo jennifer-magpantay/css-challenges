@@ -12,3 +12,5 @@ To get into is simple:
 3) Post your code
 
 Important: you have an timer running out!
+
+I am also sharing my challenge steps @ my [Codepen](https://codepen.io/jennifer-ellen-magpantay)

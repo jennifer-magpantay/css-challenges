@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+.container, .frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.button, .button:before, #pag-1:checked ~ .btn-1, #pag-2:checked ~ .btn-2, #pag-3:checked ~ .btn-3, #pag-4:checked ~ .btn-4 {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  font-size: 62.5%;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f1f2f6;
+}
+
+.frame {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  background-color: #1abc9c;
+  border-radius: 2px;
+  -webkit-box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+.pagination {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.pagination input {
+  display: none;
+}
+
+.pagination input:checked {
+  background-color: #ffffff;
+  color: #1abc9c;
+}
+
+.button {
+  width: 3em;
+  height: 3em;
+  display: inline-block;
+  position: relative;
+  padding: 0.8em;
+  border: 2px solid #ffffff;
+  border-radius: 5em;
+  color: #ffffff;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.button:not(:last-child) {
+  margin-right: 1.5em;
+}
+
+.button:hover {
+  background-color: #148f77;
+}
+
+.button:before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: #ffffff;
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  z-index: -1;
+}
+
+#pag-1:checked ~ .btn-1 {
+  color: #1abc9c;
+  background: none;
+}
+
+#pag-1:checked ~ .btn-1:before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#pag-2:checked ~ .btn-2 {
+  color: #1abc9c;
+  background: none;
+}
+
+#pag-2:checked ~ .btn-2:before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#pag-3:checked ~ .btn-3 {
+  color: #1abc9c;
+  background: none;
+}
+
+#pag-3:checked ~ .btn-3:before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#pag-4:checked ~ .btn-4 {
+  color: #1abc9c;
+  background: none;
+}
+
+#pag-4:checked ~ .btn-4:before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+/*# sourceMappingURL=index.css.map */

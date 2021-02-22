@@ -1,8 +1,8 @@
 # css-challenges
 
-##CSS 100 Days Challenge 
+## CSS 100 Days Challenge 
 
---
+---
 
 Matthias Martin created 100 days of CSS challenges. They are all there for you to see, including entries from other people — but the point is for you to give it a shot yourself, of course.
 

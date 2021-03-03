@@ -51,12 +51,15 @@ body {
     box-shadow: $box-shadow;
 }
 
+// the pagination will support the transforms we need to our style
+// it has to have this set os properties
 .pagination {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
+    // setting inputs and checked styles
     input {
         display: none;
 
@@ -67,6 +70,7 @@ body {
     }
 }
 
+// labels
 .button {
     width: 3em;
     height: 3em;
@@ -77,7 +81,7 @@ body {
     border-radius: 5em;
     color: $text-color;
     font-size: 1.6em;
-    text-align: center;
+    text-align: center;    
     @extend %transition;
 
     &:not(:last-child) {
@@ -88,7 +92,7 @@ body {
         background-color: darken($frame-color, 10%);
     }
 
-    // now, set a :before properties to reset the content and sacle to 0 when a button is selected
+    // now, set a :before properties to reset the content and scale to 0 when a button is selected
     &:before {
         display: block;
         content: "";
@@ -101,7 +105,6 @@ body {
         border-radius: 50%;
         transform: scale(0);
         z-index: -1;
-
         @extend %transition;
     }
 }
@@ -112,7 +115,6 @@ body {
     #pag-#{$i}:checked ~ .btn-#{$i} {
         color: $frame-color;
         background: none;
-        
         @extend %transition;
 
         &:before {

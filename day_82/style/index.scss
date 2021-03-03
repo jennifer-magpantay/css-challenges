@@ -1,0 +1,119 @@
+// ---------- IMPORTS ----------
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+// ---------- GLOBAL VARIABLES ----------
+$bc-color: #f1f2f6;
+$frame-color: #a29bfe;
+$text-color-lg: #ffffff;
+$text-color-dk: #192a56;
+$green: #4cd137;
+$lg-gray: #ecf0f1;
+$box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%button {
+    padding: 1.6rem 2.5rem;
+    border-radius: 5rem;
+    box-shadow: $box-shadow;
+    border: 2px solid $text-color-lg;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+%position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+}
+
+%transition {
+    transition: all 0.5s ease-in-out;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    overflow: hidden;
+}
+
+// ---------- BODY ----------
+.container {
+    @extend %flex;
+    width: 100%;
+    height: 100vh;
+    background-color: $bc-color;
+}
+
+.frame {
+    @extend %flex;
+    width: 400px;
+    height: 400px;
+    background-color: $frame-color;
+    border-radius: 2px;
+    box-shadow: $box-shadow;
+
+    // input checkbox
+    .button {
+        display: none;
+
+        // label: setting as container for the slipping
+        &--flipping {
+            @extend %flex;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            // set the transform style
+            transform-style: preserve-3d;
+            @extend %transition;
+
+            // span: each span will receive properties about display, position and button styles
+            &-send {
+                @extend %flex;
+                @extend %position;
+                @extend %button;
+                // then, add its own setting colors, transform rotations and z-index
+                background-color: $text-color-lg;
+                color: $text-color-dk;
+                transform: rotateX(0);
+                z-index: 2;
+            }
+
+            // span done
+            &-done {
+                @extend %flex;
+                @extend %position;
+                @extend %button;
+                background-color: $green;
+                color: $text-color-lg;
+                transform: rotateX(180deg);
+                z-index: 1;
+            }
+        }
+    }
+}
+
+// finally, set a rotation to the label when the checkbox/button is checked/clicked
+.button:checked ~ .button--flipping {
+    transform: rotateX(180deg);
+}

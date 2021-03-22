@@ -1,0 +1,191 @@
+// ---------- IMPORTS ----------
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&display=swap");
+
+// ---------- GLOBAL VARIABLES ----------
+$green: #1abc9c;
+$blue: #74b9ff;
+$gradient: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+$box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.5);
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%transition {
+    transition: all 0.3s ease-out;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Zilla Slab", serif;
+    overflow: hidden;
+}
+
+// ---------- BODY ----------
+.container {
+    @extend %flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+.frame {
+    @extend %flex;
+    width: 400px;
+    height: 400px;
+    flex-direction: column;
+    background-color: $green;
+    border-radius: 2px;
+    box-shadow: $box-shadow;
+
+    .menu__container {
+        // hidding the checkbox little square
+        .menu {
+            visibility: hidden;
+        }
+
+        // add style to the labels, to create the menu 'shape'
+        label,
+        label::before,
+        label::after {
+            @extend %transition;
+            width: 4.5rem;
+            height: 0.5rem;
+            position: absolute;
+            background-color: #fff;
+            border-radius: 05rem;
+            box-shadow: $box-shadow;
+        }
+
+        label {
+            margin: 0 0 0 -2.5rem;
+            cursor: pointer;
+            // setting the distance for ::before and ::after
+            &::before {
+                content: "";
+                transform: translateY(-1rem);
+                z-index: 1;
+            }
+            &::after {
+                content: "";
+                transform: translateY(1rem);
+                z-index: 2;
+            }
+        }
+    }
+
+    // when the input is checked, apply to labels its on animation and/or rotations
+    .menu:checked ~ label {
+        animation: in 0.3s ease-out both;
+        animation-delay: 0.1s;
+
+        &::before {
+            animation: rotate-center-before-in 0.8s both;
+        }
+
+        &::after {
+            animation: rotate-center-after-in 0.8s both;
+        }
+    }
+
+        // when the input is not checked, apply to labels its on reverse animation and/or rotations
+    .menu ~ label {
+        animation: out 0.3s ease-out both;
+        animation-delay: 0.2s;
+
+        &::before {
+            animation: rotate-center-before-out 0.8s both;
+        }
+
+        &::after {
+            animation: rotate-center-after-out 0.8s both;
+        }
+    }
+}
+
+// for each animation, add 2 step animation: original state and following ones
+// middle label
+@keyframes in {
+    from {
+        width: 4.5rem;
+    }
+    to {
+        width: 0;
+    }
+}
+
+@keyframes out {
+    from {
+        width: 0;
+    }
+    to {
+        width: 4.5rem;
+    }
+}
+
+// ::before labels
+@keyframes rotate-center-before-in {
+    0% {
+        transform: translateY(-1rem);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.85;
+    }
+}
+
+@keyframes rotate-center-before-out {
+    0% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0);
+    }
+    100% {
+        transform: translateY(-1rem);
+    }
+}
+
+// ::after labels
+@keyframes rotate-center-after-in {
+    0% {
+        transform: translateY(1rem);
+    }
+    50% {
+        transform: translateY(0) rotate(0);
+    }
+    100% {
+        transform: translateY(0) rotate(135deg);
+           }
+}
+
+@keyframes rotate-center-after-out {
+    0% {
+        transform: translateY(0) rotate(135deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0);
+    }
+    100% {
+        transform: translateY(1rem);
+    }
+}
+
+

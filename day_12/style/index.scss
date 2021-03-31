@@ -1,0 +1,132 @@
+// ---------- IMPORTS ----------
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+// ---------- GLOBAL VARIABLES ----------
+$color-bc: #74b9ff;
+$color-bc-dk: #3c6382;
+$color-text: #fff;
+$box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.5);
+
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%transition {
+  transition: all 0.8s ease-out;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+// ---------- BODY ----------
+.container {
+  @extend %flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.frame {
+  @extend %flex;
+  width: 400px;
+  height: 400px;
+  position: relative;
+  padding: 0 3em;
+  background-color: $color-bc;
+  border-radius: 2px;
+  box-shadow: $box-shadow;
+
+  &__content {
+    color: $color-text;
+    font-size: 2.3rem;
+    font-weight: 400;
+    line-height: 1.75;
+
+    &::before {
+      content: ",,";
+      display: block;
+      position: absolute;
+      top: -1em;
+      left: 0;
+      font-family: Arial;
+      font-size: 30rem;
+      letter-spacing: -40px;
+      opacity: 0.25;
+      z-index: 0;
+    }
+
+    // set the element that will be hovered
+    span {
+      padding: 0.25em 0.5em;
+      margin: 0 0.25em;
+      background-color: $color-bc-dk;
+      cursor: pointer;
+      letter-spacing: 0.75px;
+      @extend %transition;
+
+      // set element that will receive the animation
+      .transition {
+        width: calc(100% - 4em);
+        position: absolute;
+        margin: 0 auto;
+        background-color: $color-bc-dk;
+        pointer-events: none;
+        font-size: 1.6rem;
+        opacity: 0;
+        transform: translateY(-250px);
+        @extend %transition;
+
+        &__header {
+          padding: 0.5em;
+          background-color: $color-text;
+          color: $color-bc-dk;
+        }
+
+        &__content {
+          padding: 1em;
+          color: $color-text;
+          line-height: 1.5;
+
+        // the arrow down icon will be created by ::after
+          &::after {
+            content: "";
+            position: absolute;
+            left: calc(90% - 1.5em);
+            bottom: -0.5em;
+            border: 0.8rem solid $color-bc-dk;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      // once span is hovered, it will trigger the animation effect to the div transition, changing its translateY axis and opacity
+      &:hover {
+        .transition {        
+        transform: translateY(-200px);
+        opacity: 1;
+        }
+      }
+    }
+  }
+
+  cite {
+    display: block;
+    margin: 0.5em 0 0;
+    font-weight: 100;
+  }
+}

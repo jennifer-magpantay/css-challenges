@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+.container, .frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.frame__content span, .frame__content span .transition {
+  -webkit-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.frame {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  padding: 0 3em;
+  background-color: #74b9ff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.5);
+          box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.5);
+}
+
+.frame__content {
+  color: #fff;
+  font-size: 2.3rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.frame__content::before {
+  content: ",,";
+  display: block;
+  position: absolute;
+  top: -1em;
+  left: 0;
+  font-family: Arial;
+  font-size: 30rem;
+  letter-spacing: -40px;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.frame__content span {
+  padding: 0.25em 0.5em;
+  margin: 0 0.25em;
+  background-color: #3c6382;
+  cursor: pointer;
+  letter-spacing: 0.75px;
+}
+
+.frame__content span .transition {
+  width: calc(100% - 4em);
+  position: absolute;
+  margin: 0 auto;
+  background-color: #3c6382;
+  pointer-events: none;
+  font-size: 1.6rem;
+  opacity: 0;
+  -webkit-transform: translateY(-250px);
+          transform: translateY(-250px);
+}
+
+.frame__content span .transition__header {
+  padding: 0.5em;
+  background-color: #fff;
+  color: #3c6382;
+}
+
+.frame__content span .transition__content {
+  padding: 1em;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.frame__content span .transition__content::after {
+  content: "";
+  position: absolute;
+  left: calc(90% - 1.5em);
+  bottom: -0.5em;
+  border: 0.8rem solid #3c6382;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.frame__content span:hover .transition {
+  -webkit-transform: translateY(-200px);
+          transform: translateY(-200px);
+  opacity: 1;
+}
+
+.frame cite {
+  display: block;
+  margin: 0.5em 0 0;
+  font-weight: 100;
+}
+/*# sourceMappingURL=index.css.map */

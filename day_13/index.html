@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="100 Days of CSS Challenges">
+    <meta name="keywords" content="HTML, CSS, Sass">
+    <meta name="author" content="Jennifer Magpantay">
+    <!-- styles -->
+    <link rel="stylesheet" href="./style/index.css">
+    <!-- title -->
+    <title>100 Days - CSS Challenge | Day 13</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="frame">
+            <!-- create a mural with 4 200x200 photos which will display, in every photo and when it is hovered, a button to open a social card -->
+            <div class="profiles__container">
+                <!-- each profile will have its own div, which will control its own content -->
+                <!-- profile 1 -->
+                <div class="profile">
+                    <!-- picture -->
+                    <img class="profile__img" src="./assets/profile/devn-53ouhY5koKY-unsplash.jpg"
+                        alt="Profile picture in perfil a woman with curly long and volumous hair, posing against a colourfull wall" />
+
+                    <!-- a checkbox as button to control when it is checkep -->
+                    <input type="checkbox" class="button" id="profile1">
+                    <label for="profile1" class="profile__button profile__btn--1">+</label>
+
+                    <!-- parts of the card to be shown when button is clicked/input is checked  -->
+                    <div class="card__header card__header--1">
+                        <img class="card__header--img" src="./assets/nature/john-ko-5u0tPdlsfdw-unsplash.jpg"
+                            alt="Picture of the desert and rocks, with a nice sunset" />
+                    </div>
+
+                    <div class="card__img card__img--1">
+                        <img class="card__img--thumbnail" src="./assets/profile/devn-53ouhY5koKY-unsplash.jpg"
+                            alt="Thumbnail of the profile picture" />
+                    </div>
+
+                    <div class="card__body card__body--1">
+                        <h3 class="card__body--title">Lorem Ipsum</h3>
+                        <ul class="card__body--list">
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- profile 2 -->
+                <div class="profile">
+                    <!-- picture -->
+                    <img class="profile__img" src="./assets/profile/devn-TJDvP6xm2Eo-unsplash.jpg"
+                        alt="Profile picture in perfil of a woman with curly long and volumous hair, posing against a white wall, holding glass close to her mounth, and wearing a yellow rain jacket" />
+
+                    <!-- button -->
+                    <input type="checkbox" class="button" id="profile2">
+                    <label for="profile2" class="profile__button profile__btn--2">+</label>
+
+                    <!-- cards -->
+                    <div class="card__header card__header--2">
+                        <img class="card__header--img" src="./assets/nature/daniel-sessler-LsqF59OOEC0-unsplash.jpg"
+                            alt="Picture of florest and a shy blue sky" />
+                    </div>
+
+                    <div class="card__img card__img--2">
+                        <img class="card__img--thumbnail" src="./assets/profile/devn-TJDvP6xm2Eo-unsplash.jpg"
+                            alt="Thumbnail of the profile picture" />
+                    </div>
+
+                    <div class="card__body card__body--2">
+                        <h3 class="card__body--title">Lorem Ipsum</h3>
+                        <ul class="card__body--list">
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- profile 3 -->
+                <div class="profile">
+                    <!-- picture -->
+                    <img class="profile__img" src="./assets/profile/jorge-saavedra-jbxL_EXEZB8-unsplash.jpg"
+                        alt="Close profile picture of a transgender with curly short hair, holding a plant and wearing red lipstick" />
+
+                    <!-- button -->
+                    <input type="checkbox" class="button" id="profile3">
+                    <label for="profile3" class="profile__button profile__btn--3">+</label>
+
+                    <!-- cards -->
+                    <div class="card__header card__header--3">
+                        <img class="card__header--img" src="./assets/nature/siddharth-kushwaha-LCIdEQzPoV0-unsplash.jpg"
+                            alt="Picture of roses against a red wall" />
+                    </div>
+
+                    <div class="card__img card__img--3">
+                        <img class="card__img--thumbnail" src="./assets/profile/jorge-saavedra-jbxL_EXEZB8-unsplash.jpg"
+                            alt="Thumbnail of the profile picture" />
+                    </div>
+
+                    <div class="card__body card__body--3">
+                        <h3 class="card__body--title">Lorem Ipsum</h3>
+                        <ul class="card__body--list">
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- profile 4 -->
+                <div class="profile">
+                    <!-- picture -->
+                    <img class="profile__img" src="./assets/profile/seth-doyle-IMYvZjlX3jE-unsplash.jpg"
+                        alt="Close profile picture of a transgender with curly short hair, holding a plant and wearing red lipstick" />
+
+                    <!-- button -->
+                    <input type="checkbox" class="button" id="profile4">
+                    <label for="profile4" class="profile__button profile__btn--4">+</label>
+
+                    <!-- cards -->
+                    <div class="card__header card__header--4">
+                        <img class="card__header--img" src="./assets/nature/marek-piwnicki-enuCEimS1p4-unsplash.jpg"
+                            alt="Picture of roses against a red wall" />
+                    </div>
+
+                    <div class="card__img card__img--4">
+                        <img class="card__img--thumbnail" src="./assets/profile/seth-doyle-IMYvZjlX3jE-unsplash.jpg"
+                            alt="Thumbnail of the profile picture" />
+                    </div>
+
+                    <div class="card__body card__body--4">
+                        <h3 class="card__body--title">Lorem Ipsum</h3>
+                        <ul class="card__body--list">
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                            <li><span class="list__icon">x</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

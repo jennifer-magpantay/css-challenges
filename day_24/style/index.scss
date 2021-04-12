@@ -1,0 +1,159 @@
+// ---------- IMPORTS ----------
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+// ---------- GLOBAL VARIABLES ----------
+$color-bc: #f2f2f2;
+$color-frame-bc: #1abc9c;
+$color-text: #fff;
+$box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.5);
+$darken: darken($color-frame-bc, 5%);
+$cubic-bezier: cubic-bezier(0.65, 0, 0.45, 1);
+
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%transition {
+  transition: all 0.5s ease-out;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+// ---------- BODY ----------
+.container {
+  @extend %flex;
+  width: 100%;
+  height: 100vh;
+  background-color: $color-bc;
+}
+
+.frame {
+  @extend %flex;
+  width: 400px;
+  height: 400px;
+  position: relative;
+  padding: 0 3em;
+  background-color: $color-frame-bc;
+  border-radius: 2px;
+  box-shadow: $box-shadow;
+
+  // label/button
+  .button {
+    display: inline-block;
+    padding: 01em 3em;
+    background-color: transparent;
+    border: 2px solid $color-text;
+    border-radius: 50px;
+    color: $color-text;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transform: scaleX(1);
+    @extend %transition;
+
+    &::before {
+      content: "FINISHED";
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $darken;
+    }
+  }
+
+  // svg
+  .circle {
+    position: absolute;
+    top: 42.5%;
+    left: 42.5%;
+    fill: transparent;
+    stroke: $color-text;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    pointer-events: none;
+    transform: translate(0);
+    z-index: 0;
+
+    &__check {
+      fill: none;
+      stroke: $color-frame-bc;
+      stroke-dasharray: 45;
+      stroke-dashoffset: 45;
+      transform: translate(4px);
+    }
+  }
+
+  // input
+  // hide the input
+  input[type="checkbox"] {
+    display: none;
+
+    // add the style to the label/button once the input is checked
+    // the button willscale down for a min-width
+    &:checked {
+      ~ .button {
+        min-width: 52px;
+        min-height: 52px;
+        border-color: $darken;
+        border-radius: 50%;
+        transform: scaleX(0.5);
+
+        &::before {
+          content: " ";
+        }
+      }
+
+      // then, the circle will receive the animations to draw the lines and fill in
+      ~ .circle {
+        // add animation
+        // animation: name duration timing-function delay iteration-count direction fill-mode;
+        animation: draw-line 1.5s $cubic-bezier 0.5s both;
+      }
+
+      // on path, add the checkmark animation
+      ~ .circle > .circle__check {
+        animation: checkmark 0.8s $cubic-bezier 2s forwards;
+      }
+    }
+  }
+}
+
+@keyframes draw-line {
+  0% {
+    stroke-dashoffset: 160;
+    fill: transparent;
+  }
+  96% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+    stroke: $color-text;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: $color-text;
+    stroke: $darken;
+  }
+}
+
+@keyframes checkmark {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

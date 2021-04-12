@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+.container, .frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.frame .button {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.frame {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  padding: 0 3em;
+  background-color: #1abc9c;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.5);
+          box-shadow: 0px 2px 4px 0px rgba(50, 50, 50, 0.5);
+}
+
+.frame .button {
+  display: inline-block;
+  padding: 01em 3em;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.6rem;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.frame .button::before {
+  content: "FINISHED";
+}
+
+.frame .button:hover, .frame .button:focus {
+  background-color: #17a689;
+}
+
+.frame .circle {
+  position: absolute;
+  top: 42.5%;
+  left: 42.5%;
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  pointer-events: none;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+  z-index: 0;
+}
+
+.frame .circle__check {
+  fill: none;
+  stroke: #1abc9c;
+  stroke-dasharray: 45;
+  stroke-dashoffset: 45;
+  -webkit-transform: translate(4px);
+          transform: translate(4px);
+}
+
+.frame input[type="checkbox"] {
+  display: none;
+}
+
+.frame input[type="checkbox"]:checked ~ .button {
+  min-width: 52px;
+  min-height: 52px;
+  border-color: #17a689;
+  border-radius: 50%;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+
+.frame input[type="checkbox"]:checked ~ .button::before {
+  content: " ";
+}
+
+.frame input[type="checkbox"]:checked ~ .circle {
+  -webkit-animation: draw-line 1.5s cubic-bezier(0.65, 0, 0.45, 1) 0.5s both;
+          animation: draw-line 1.5s cubic-bezier(0.65, 0, 0.45, 1) 0.5s both;
+}
+
+.frame input[type="checkbox"]:checked ~ .circle > .circle__check {
+  -webkit-animation: checkmark 0.8s cubic-bezier(0.65, 0, 0.45, 1) 2s forwards;
+          animation: checkmark 0.8s cubic-bezier(0.65, 0, 0.45, 1) 2s forwards;
+}
+
+@-webkit-keyframes draw-line {
+  0% {
+    stroke-dashoffset: 160;
+    fill: transparent;
+  }
+  96% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+    stroke: #fff;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #fff;
+    stroke: #17a689;
+  }
+}
+
+@keyframes draw-line {
+  0% {
+    stroke-dashoffset: 160;
+    fill: transparent;
+  }
+  96% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+    stroke: #fff;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #fff;
+    stroke: #17a689;
+  }
+}
+
+@-webkit-keyframes checkmark {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkmark {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+/*# sourceMappingURL=index.css.map */
